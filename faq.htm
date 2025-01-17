@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrapper {
+        max-width: 75%;
+        margin: auto;
+      }
+
+      .wrapper > h1 {
+        margin: 1.5rem 0;
+        text-align: center;
+        letter-spacing: 3px;
+      }
+
+      .faq {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        margin: 10px 0;
+      }
+
+      .faq.active {
+        border: none;
+      }
+
+      .accordion {
+        background-color: white;
+        color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+        font-size: 1.2rem;
+        width: 100%;
+        padding: 2rem 2.5rem;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+      }
+
+      .accordion i {
+        font-size: 1.6rem;
+        margin-right: 10px;
+      }
+
+      .active,
+      .accordion:hover {
+        background-color: #f1f7f5;
+      }
+
+      .pannel {
+        padding: 0 2rem 2.5rem 2rem;
+        background-color: white;
+        overflow: hidden;
+        background-color: #f1f7f5;
+        display: none;
+      }
+
+      .pannel p {
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 1.2rem;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 100%">
+        <tr>
+          <td colspan="2">
+            <img
+              src="./Images/Logo.png"
+              style="mix-blend-mode: multiply;"
+            />
+          </td>
+          <td>
+            <b><left>Timings:</left></b>
+            <p>Monday - Friday 08:00 am-7:00 pm</p>
+            <p>Saturday and Sunday - CLOSED</p>
+          </td>
+
+          <td>
+            <b><left>Contact Details:</left></b>
+            <p>+91 7491896502</p>
+            <p>mukundmadhav1998@gmail.com</p>
+          </td>
+
+          <td>
+            <b><left>Address:</left></b>
+            <p>Near by JIO Fule Center</p>
+            <p>Kurnool</p>
+          </td>
+          <td colspan="2">
+            <img
+              src="./Images/emergency-service-removebg-preview.png" style="width:300px"
+            />
+          </td>
+        </tr>
+      </div>
+      <div class="nav">
+        <tr style="background: rgb(6, 181, 240)">
+          <td align="center" style="padding: 15px">
+            <a href="index.htm" style="color: #fff">HOME</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="About.htm" style="color: #fff">ABOUT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="service.htm" style="color: #fff">SERVICES</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="appointment.htm" style="color: #fff">APPOINTMENT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="testimonial.htm" style="color: #fff">TESTIMONIALS</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="contact.htm" style="color: #fff">CONTACT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="faq.htm" style="color: #fff">FAQs</a>
+          </td>
+        </tr>
+      </div>
+      </table>
+    <div class="wrapper">
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="faq">
+        <button class="accordion">
+          What are the visiting hours?
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Our hospital's visiting hours are from 8:00 AM to 7:00 PM on
+            weekdays. On weekends, the hospital is closed for visitors.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          How can I make an appointment?
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            You can make an appointment by calling our reception desk at +91
+            7491896502 to book your appointments at Glocal Multi Speciality Hospital by visiting our hospital in person or you can book an Appointment Online from our website also.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          What types of services do you offer? 
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            We offer a wide range of medical services including general
+            medicine, pediatrics, surgery, obstetrics and gynecology,
+            cardiology, neurology, oncology, and more.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Is parking available at the hospital?
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Yes, we have ample parking space available for patients and visitors
+            at our hospital premises.
+          </p>
+        </div>
+      </div>
+
+      
+      <div class="faq">
+        <button class="accordion">
+            Do you provide cashless treatments?
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Yes, We do provide cashless treatments for patients who have their medical insurances. 
+            We are tied up with almost 30+ insurance companies to provide cashless treatments. Please feel free to contact us on +91 7491896502 or email us on mukundmadhav1998@gmail.com in to get detailed information about cashless treatments.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+            Do you have Ambulance services?
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Yes. we have our own ambulances for transportation of patient’s in case of emergencies.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+            Which are the payment modes to pay the bills?
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Normally, we would like to collect the bill payment in the form of Cash, card payment as well as you can do it through our online payment facility.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.parentElement.classList.toggle("active");
+
+          var pannel = this.nextElementSibling;
+
+          if (pannel.style.display === "block") {
+            pannel.style.display = "none";
+            this.querySelector("i").classList.replace("fa-minus", "fa-plus");
+          } else {
+            pannel.style.display = "block";
+            this.querySelector("i").classList.replace("fa-plus", "fa-minus");
+          }
+        });
+      }
+    </script>
+
+  </body>
+</html>

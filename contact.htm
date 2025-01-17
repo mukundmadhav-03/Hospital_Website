@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+      }
+
+      .contact-form {
+        max-width: 500px;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-weight: bold;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea,
+      input[type="submit"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        height: 100px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .success-message {
+        display: none;
+        text-align: center;
+        background-color: #dff0d8;
+        color: #3c763d;
+        border: 1px solid #d6e9c6;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 100%">
+      <tr>
+        <td colspan="2">
+          <img
+            src="./Images/Logo.png"
+            style="mix-blend-mode: multiply;"
+          />
+        </td>
+        <td>
+          <b><left>Timings:</left></b>
+          <p>Monday - Friday 08:00 am-7:00 pm</p>
+          <p>Saturday and Sunday - CLOSED</p>
+        </td>
+
+        <td>
+          <b><left>Contact Details:</left></b>
+          <p>+91 7491896502</p>
+          <p>mukundmadhav1998@gmail.c0m</p>
+        </td>
+
+        <td>
+          <b><left>Address:</left></b>
+          <p>Near by JIO Fule Center</p>
+          <p>Kurnool</p>
+        </td>
+        <td colspan="2">
+          <img
+            src="./Images/emergency-service-removebg-preview.png"
+            style="width: 300px"
+          />
+        </td>
+      </tr>
+      <div class="nav">
+        <tr style="background: rgb(6, 181, 240)">
+          <td align="center" style="padding: 15px">
+            <a href="index.htm" style="color: #fff">HOME</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="About.htm" style="color: #fff">ABOUT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="service.htm" style="color: #fff">SERVICES</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="appointment.htm" style="color: #fff">APPOINTMENT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="testimonial.htm" style="color: #fff">TESTIMONIALS</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="contact.htm" style="color: #fff">CONTACT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="faq.htm" style="color: #fff">FAQs</a>
+          </td>
+        </tr>
+      </div>
+    </table>
+    <h1>Contact Us</h1>
+    <div class="container">
+      <div class="contact-form">
+        <form id="contactForm" action="#" method="POST">
+          <label for="name">Your Name:</label><br />
+          <input type="text" id="name" name="name" required /><br />
+
+          <label for="email">Your Email:</label><br />
+          <input type="email" id="email" name="email" required /><br />
+
+          <label for="message">Message:</label><br />
+          <textarea id="message" name="message" required></textarea><br />
+
+          <input type="submit" value="Submit" />
+        </form>
+        <div id="successMessage" class="success-message">
+          Thank you for contacting us!<br />
+          We will Contact you within a short time!
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get the form and success message elements
+      var contactForm = document.getElementById("contactForm");
+      var successMessage = document.getElementById("successMessage");
+
+      // Add event listener for form submission
+      contactForm.addEventListener("submit", function (event) {
+        // Prevent default form submission
+        event.preventDefault();
+        // Show the success message
+        successMessage.style.display = "block";
+        // Reset the form
+        contactForm.reset();
+        // Hide the success message after 3 seconds
+        setTimeout(function () {
+          successMessage.style.display = "none";
+        }, 5000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+
+      .form-container {
+        max-width: 500px; /* Increased max-width */
+        width: 100%; /* Added width to ensure full width on smaller screens */
+        margin: 0 10px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-weight: bold;
+        color: #333;
+      }
+
+      input[type="text"],
+      select,
+      input[type="date"],
+      input[type="time"],
+      input[type="submit"] {
+        width: calc(100% - 22px); /* Subtract padding and border width */
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      #timingDiv {
+        display: none;
+      }
+
+      .message {
+        display: none;
+        background-color: #dff0d8;
+        color: #3c763d;
+        border: 1px solid #d6e9c6;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 100%">
+      <tr>
+        <td colspan="2">
+          <img
+            src="./Images/Logo.png"
+            style="mix-blend-mode: multiply;"
+          />
+        </td>
+        <td>
+          <b><left>Timings:</left></b>
+          <p>Monday - Friday 08:00 am-7:00 pm</p>
+          <p>Saturday and Sunday - CLOSED</p>
+        </td>
+
+        <td>
+          <b><left>Contact Details:</left></b>
+          <p>+91 7491896502</p>
+          <p>mukundmadhav1998@gmail.com</p>
+        </td>
+
+        <td>
+          <b><left>Address:</left></b>
+          <p>Near by JIO Fule Center</p>
+          <p>Begusarai</p>
+        </td>
+        <td colspan="2">
+          <img
+            src="./Images/emergency-service-removebg-preview.png"
+            style="width: 300px"
+          />
+        </td>
+      </tr>
+      <div class="nav">
+        <tr style="background: rgb(6, 181, 240)">
+          <td align="center" style="padding: 15px">
+            <a href="index.htm" style="color: #fff">HOME</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="About.htm" style="color: #fff">ABOUT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="service.htm" style="color: #fff">SERVICES</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="appointment.htm" style="color: #fff">APPOINTMENT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="testimonial.htm" style="color: #fff">TESTIMONIALS</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="contact.htm" style="color: #fff">CONTACT</a>
+          </td>
+          <td align="center" style="padding: 10px">
+            <a href="faq.htm" style="color: #fff">FAQs</a>
+          </td>
+        </tr>
+      </div>
+    </table>
+    <center>
+      <h1>Book/Cancel your Appointment</h1>
+      <div class="container">
+        <div class="form-container">
+          <h2>Book an Appointment</h2>
+          <form id="appointmentForm" onsubmit="return bookAppointment()">
+            <label for="name">Your Name:</label><br />
+            <input type="text" id="name" name="name" required /><br />
+
+            <label for="doctor_type">Type of Doctor:</label><br />
+            <select
+              id="doctor_type"
+              name="doctor_type"
+              required
+              onchange="showAvailableTimings()"
+            >
+              <option value="">Select a Doctor</option>
+              <option value="Pediatrician">Pediatrician</option>
+              <option value="Opthamologist">Opthamologist</option>
+              <option value="orthopaedic Surgeon">orthopaedic Surgeon</option>
+              <option value="Cardiologist">Cardiologist</option>
+              <option value="Dermatologist">Dermatologist</option>
+              <option value="Ent specialist">Ent specialist</option>
+              <!-- Add more options as needed --></select
+            ><br />
+
+            <div id="timingDiv">
+              <label for="timing">Available Timings:</label><br />
+              <select id="timing" name="timing" required>
+                <!-- Timings will be dynamically populated based on the selected doctor type --></select
+              ><br />
+            </div>
+
+            <input type="submit" value="Book Appointment" />
+          </form>
+          <div id="bookingMessage" class="message"></div>
+        </div>
+
+        <div class="form-container">
+          <h2>Cancel Appointment</h2>
+          <form
+            id="cancelAppointmentForm"
+            onsubmit="return cancelAppointment()"
+          >
+            <label for="cancelName">Your Name:</label><br />
+            <input
+              type="text"
+              id="cancelName"
+              name="cancelName"
+              required
+            /><br />
+
+            <div id="cancelDoctorTypeDiv">
+              <label for="cancelDoctorType">Type of Doctor:</label><br />
+              <select
+                id="cancelDoctorType"
+                name="cancelDoctorType"
+                required
+                onchange="populateBookedTimings()"
+              >
+                <option value="">Select a Doctor</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Opthamologist">Opthamologist</option>
+                <option value="orthopaedic Surgeon">orthopaedic Surgeon</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Dermatologist">Dermatologist</option>
+                <option value="Ent specialist">Ent specialist</option>
+                <!-- Add more options as needed --></select
+              ><br />
+            </div>
+
+            <div id="cancelTimingDiv" style="display: none">
+              <label for="cancelTiming">Booked Timing:</label><br />
+              <select id="cancelTiming" name="cancelTiming" required>
+                <!-- Options will be dynamically populated based on selected doctor and booked appointments --></select
+              ><br />
+            </div>
+
+            <input type="submit" value="Cancel Appointment" />
+          </form>
+          <div id="cancelMessage" class="message"></div>
+        </div>
+      </div>
+    </center>
+
+    <script>
+      var bookedAppointments = {};
+
+      function bookAppointment() {
+        var name = document.getElementById("name").value;
+        var doctorType = document.getElementById("doctor_type").value;
+        var timing = document.getElementById("timing").value;
+        var bookingMessage = document.getElementById("bookingMessage");
+
+        if (!bookedAppointments.hasOwnProperty(doctorType)) {
+          bookedAppointments[doctorType] = {};
+        }
+
+        if (!bookedAppointments[doctorType].hasOwnProperty(timing)) {
+          bookedAppointments[doctorType][timing] = [];
+        }
+
+        bookedAppointments[doctorType][timing].push(name);
+        bookingMessage.textContent = "Appointment successfully booked!";
+        bookingMessage.style.display = "block";
+
+        return false;
+      }
+
+      function cancelAppointment() {
+        var name = document.getElementById("cancelName").value;
+        var doctorType = document.getElementById("cancelDoctorType").value;
+        var timing = document.getElementById("cancelTiming").value;
+        var cancelMessage = document.getElementById("cancelMessage");
+
+        if (
+          bookedAppointments.hasOwnProperty(doctorType) &&
+          bookedAppointments[doctorType].hasOwnProperty(timing)
+        ) {
+          var index = bookedAppointments[doctorType][timing].indexOf(name);
+          if (index !== -1) {
+            bookedAppointments[doctorType][timing].splice(index, 1);
+            cancelMessage.textContent = "Appointment successfully canceled!";
+            cancelMessage.style.display = "block";
+          } else {
+            cancelMessage.textContent =
+              "No appointment found for this name and timing!";
+            cancelMessage.style.display = "block";
+          }
+        } else {
+          cancelMessage.textContent =
+            "No appointment found for this doctor and timing!";
+          cancelMessage.style.display = "block";
+        }
+
+        return false;
+      }
+
+      function showAvailableTimings() {
+        var doctorType = document.getElementById("doctor_type").value;
+        var timingSelect = document.getElementById("timing");
+        var timingDiv = document.getElementById("timingDiv");
+
+        // Clear previous options
+        timingSelect.innerHTML = "";
+
+        // Get the current date
+        var currentDate = new Date();
+
+        // Show timings for the upcoming week (7 days)
+        for (var i = 0; i < 7; i++) {
+          // Calculate the date for the current day
+          var date = new Date(currentDate.getTime() + i * 24 * 60 * 60 * 1000);
+          var day = date.toLocaleDateString("en-US", { weekday: "long" });
+          var dateString = date.toISOString().slice(0, 10); // Get YYYY-MM-DD format
+
+          // Show timings for each day
+          for (var hour = 9; hour < 17; hour += 3) {
+            // From 9:00 AM to 4:00 PM
+            var timingValue = `${dateString} ${hour}:00`;
+            timingSelect.innerHTML += `<option value="${timingValue}">${day}, ${hour}:00</option>`;
+          }
+        }
+
+        // Show the timing select dropdown
+        timingDiv.style.display = "block";
+      }
+
+      function populateBookedTimings() {
+        var doctorType = document.getElementById("cancelDoctorType").value;
+        var cancelTimingSelect = document.getElementById("cancelTiming");
+        var cancelTimingDiv = document.getElementById("cancelTimingDiv");
+
+        // Clear previous options
+        cancelTimingSelect.innerHTML = "";
+
+        if (doctorType !== "") {
+          if (bookedAppointments.hasOwnProperty(doctorType)) {
+            for (var timing in bookedAppointments[doctorType]) {
+              cancelTimingSelect.innerHTML += `<option value="${timing}">${timing}</option>`;
+            }
+            cancelTimingDiv.style.display = "block";
+          } else {
+            cancelTimingSelect.innerHTML =
+              "<option value=''>No booked appointments</option>";
+            cancelTimingDiv.style.display = "block";
+          }
+        } else {
+          cancelTimingDiv.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
